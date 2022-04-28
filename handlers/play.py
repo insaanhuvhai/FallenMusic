@@ -55,7 +55,7 @@ async def play(_, message: Message):
 
     await message.delete()
 
-    fallen = await message.reply("» ᴘʀᴏᴄᴇssɪɴɢ​... ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ ʙᴀʙʏ🔎")
+    fallen = await message.reply("» Processing....🔥")
 
     chumtiya = message.from_user.mention
 
@@ -77,24 +77,24 @@ async def play(_, message: Message):
                     invitelink = await _.export_chat_invite_link(chid)
                 except:
                     await fallen.edit(
-                        "<b>» ꜰɪʀsᴛʟʏ ᴍᴀᴋᴇ ᴍᴇ ᴀᴅᴍɪɴ ʙᴀʙʏ</b>")
+                        "<b>😒 Make me Admin...Sahab...</b>")
                     return
 
                 try:
                     await USER.join_chat(invitelink)
                     await USER.send_message(
-                        message.chat.id, "» ᴀssɪsᴛᴀɴᴛ sᴜᴄᴄᴇssꜰᴜʟʏ ᴊᴏɪɴᴇᴅ ᴛʜᴇ ᴄʜᴀᴛ ʙᴀʙʏ, ɴᴏᴡ ʏᴏᴜ ᴄᴀɴ ᴘʟᴀʏ sᴏɴɢs​.")
+                        message.chat.id, "Assistant Joined Successfully 🙂.")
 
                 except UserAlreadyParticipant:
                     pass
                 except Exception:
                     await fallen.edit(
-                        f"<b>» ᴀssɪsᴛᴀɴᴛ ɪs ɴᴏᴛ ɪɴ ᴛʜɪs ᴄʜᴀᴛ ʙᴀʙʏ, sᴇɴᴅ /join ғɪʀsᴛ ᴛɪᴍᴇ ᴛᴏ ᴏʀᴅᴇʀ ᴛʜᴇ ᴀssɪsᴛᴀɴᴛ ᴛᴏ ᴊ​ᴏɪɴ ʏᴏᴜʀ ᴄʜᴀᴛ.")
+                        f"<b>Assistant not in the chat..first make sure to add my assistant...or give /join command.....")
     try:
         await USER.get_chat(chid)
     except:
         await fallen.edit(
-            f"<i>» ᴀssɪsᴛᴀɴᴛ ɪs ʙᴀɴɴᴇᴅ ɪɴ ᴛʜɪs ᴄʜᴀᴛ ʙᴀʙʏ.</i>")
+            f"<i>Assistant is Banned !!¿?.</i>")
         return
     
     audio = (
@@ -107,7 +107,7 @@ async def play(_, message: Message):
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
             raise DurationLimitError(
-                f"» sᴏʀʀʏ ʙᴀʙʏ, ᴛʀᴀᴄᴋ ʟᴏɴɢᴇʀ ᴛʜᴀɴ  {DURATION_LIMIT} ᴍɪɴᴜᴛᴇs ᴀʀᴇ ɴᴏᴛ ᴀʟʟᴏᴡᴇᴅ ᴛᴏ ᴘʟᴀʏ"
+                f"Sorry User, Songs longer than {DURATION_LIMIT} minute are not allowed to play ."
             )
 
         file_name = get_file_name(audio)
@@ -155,9 +155,9 @@ async def play(_, message: Message):
     else:
         if len(message.command) < 2:
             return await fallen.edit(
-                "» ɢɪᴠᴇ sᴏᴍᴇ ᴛᴇxᴛ ᴛᴏ sᴇᴀʀᴄʜ ʙᴀʙʏ🤦🏻‍♂️"
+                "Give Some Text 😂..."
             )
-        await fallen.edit("🔎")
+        await fallen.edit("🎥 Searching The Song...")
         query = message.text.split(None, 1)[1]
         # print(query)
         try:
@@ -182,14 +182,14 @@ async def play(_, message: Message):
 
         except Exception as e:
             await fallen.edit(
-                "» ɴᴏᴛ ғᴏᴜɴᴅ, ᴛʀʏ sᴇᴀʀᴄʜɪɴɢ ᴡɪᴛʜ ᴛʜᴇ sᴏɴɢ ɴᴀᴍᴇ ʙᴀʙʏ"
+                "Not found, try again..."
             )
             print(str(e))
             return
 
         if (dur / 60) > DURATION_LIMIT:
             await fallen.edit(
-                f"» sᴏʀʀʏ ʙᴀʙʏ, ᴛʀᴀᴄᴋ ʟᴏɴɢᴇʀ ᴛʜᴀɴ  {DURATION_LIMIT} ᴍɪɴᴜᴛᴇs ᴀʀᴇ ɴᴏᴛ ᴀʟʟᴏᴡᴇᴅ ᴛᴏ ᴘʟᴀʏ"
+                f"» Sorry User, Songs longer than  {DURATION_LIMIT} minutes are not allowed to play...."
             )
             return
         file_path = await converter.convert(youtube.download(url))
@@ -200,12 +200,12 @@ async def play(_, message: Message):
     if int(chat_id) in ACTV_CALLS:
         position = await queues.put(chat_id, file=file_path)
         await message.reply_text(
-            text=f"**» ᴛʀᴀᴄᴋ ǫᴜᴇᴜᴇᴅ ᴀᴛ** {position} **ʙᴀʙʏ**\n\n📌 **ᴛɪᴛʟᴇ​ :**[{title}]({url})\n\n🕕** ᴅᴜʀᴀᴛɪᴏɴ :** `{duration}` **ᴍɪɴᴜᴛᴇs**\n💕** ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ​ : **{chumtiya}",
+            text=f"**~ Queued at** {position} **User**\n\n📍 **Title :**[{title}]({url})\n\n🕕** Duration :** `{duration}` **Minutes**\n** Requested by : **{chumtiya}",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("• sᴜᴩᴩᴏʀᴛ •", url=f"https://t.me/{SUPPORT_GROUP}"),
-                    InlineKeyboardButton("» ᴄʟᴏsᴇ «", callback_data="close_play")
+                    InlineKeyboardButton("⚡ Akira Official ⚡", url=f"https://t.me/Akira_Updates"),
+                    InlineKeyboardButton("⛔ Close ⛔", callback_data="close_play")
                 ],
             ]
         ),
@@ -223,12 +223,12 @@ async def play(_, message: Message):
             )
 
         await message.reply_text(
-            text=f"**» ɴᴏᴡ ᴘʟᴀʏɪɴɢ «**\n📌 **ᴛɪᴛʟᴇ​:** [{title}]({url})\n🕕 **ᴅᴜʀᴀᴛɪᴏɴ:** `{duration}` ᴍɪɴᴜᴛᴇs\n💕 **ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ​:** {chumtiya}\n💔 **ᴘʟᴀʏɪɴɢ ɪɴ​:** `{message.chat.title}`\n🎥 **sᴛʀᴇᴀᴍ ᴛʏᴘᴇ:** ʏᴏᴜᴛᴜʙᴇ ᴍᴜsɪᴄ\n",
+            text=f"**🔥 Now Playing 🔥**\n📍 **Title​:** [{title}]({url})\n🕕 **Duration:** `{duration}` Minutes\n **Requested by:** {chumtiya}\n **Playing in​:** `{message.chat.title}`\n🎥 **Steam Type:** YouTube Music\n",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("• sᴜᴩᴩᴏʀᴛ •", url=f"https://t.me/{SUPPORT_GROUP}"),
-                    InlineKeyboardButton("» ᴄʟᴏsᴇ «", callback_data="close_play")
+                    InlineKeyboardButton("⚡ Akira Official ⚡", url=f"https://t.me/Akira_Updates"),
+                    InlineKeyboardButton("⛔ Close ⛔", callback_data="close_play")
                 ],
             ]
         ),
