@@ -148,7 +148,7 @@ async def play(_, message: Message):
 
         if (dur / 60) > DURATION_LIMIT:
             await fallen.edit(
-                f"» sᴏʀʀʏ ʙᴀʙʏ, ᴛʀᴀᴄᴋ ʟᴏɴɢᴇʀ ᴛʜᴀɴ  {DURATION_LIMIT} ᴍɪɴᴜᴛᴇs ᴀʀᴇ ɴᴏᴛ ᴀʟʟᴏᴡᴇᴅ ᴛᴏ ᴘʟᴀʏ"
+                f"Sorry User,Songs longer than  {DURATION_LIMIT} minutes are not allowed to play"
             )
             return
         file_path = await converter.convert(youtube.download(url))
