@@ -79,7 +79,7 @@ async def executor(client, message):
         )
         await message.reply_document(
             document=filename,
-            caption=f"**ɪɴᴩᴜᴛ:**\n`{cmd[0:980]}`\n\n**ᴏᴜᴛᴩᴜᴛ:**\n`ᴀᴛᴛᴀᴄʜᴇᴅ ᴅᴏᴄᴜᴍᴇɴᴛ`",
+            caption=f"**ɪɴᴩᴜᴛ:**\n`{cmd[0:980]}`\n\n**Output:**\n`Attached Documents`",
             quote=False,
             reply_markup=keyboard,
         )
