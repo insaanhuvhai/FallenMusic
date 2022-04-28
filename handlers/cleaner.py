@@ -31,7 +31,7 @@ async def clear_raw(_, message: Message):
     if ls_dir:
         for file in os.listdir(raw_files):
             os.remove(os.path.join(raw_files, file))
-        await message.reply_text("**{} ᴅᴇʟᴇᴛᴇᴅ ᴀʟʟ ʀᴀᴡ ꜰɪʟᴇs**".format(bn) )
+        await message.reply_text("**{} Deleted All Raw Files**".format(bn) )
     else:
         await message.reply_text("**No raw files found...​**")
 
