@@ -52,18 +52,18 @@ async def help(client: Client, message: Message):
     await message.reply_sticker("CAACAgUAAxkBAAEENxZiNtPdibVkMsjLZrUG9NK4hotHQgAC2wEAAoM12VSdN9ujxVtnUyME")
     rahul = await message.reply_photo(
         photo=f"{PING_IMG}",
-        caption="🍑 ᴩɪɴɢɪɴɢ... 🍑",
+        caption="**PINGING** FETCHING SPEED...",
     )
     await rahul.edit_text(
-        f"""<b> ᴩᴏɴɢ ʙᴀʙʏ ! 🍑</b>\n  🏓 `{resp} ᴍs`\n\n<b><u>{BOT_NAME} sʏsᴛᴇᴍ sᴛᴀᴛs:</u></b>\n\n• ᴜᴩᴛɪᴍᴇ : {bot_uptime}\n• ᴄᴩᴜ : {cpu}%\n• ᴅɪsᴋ : {disk}%\n• ʀᴀᴍ : {mem}""",
+        f"""<b> •• PONG •• </b>\n 📍 SPEED `{resp} ᴍs`\n\n<b><u>{BOT_NAME} System Stats:</u></b>\n\n• Uptime: {bot_uptime}\n• CPU : {cpu}%\n• Disk : {disk}%\n• Ram: {mem}""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "💖 sᴜᴘᴘᴏʀᴛ 💖", url=f"https://t.me/{SUPPORT_GROUP}"
+                        "Support", url=f"https://t.me/theblue_support"
                     ),
                     InlineKeyboardButton(
-                        "🙄 sᴏᴜʀᴄᴇ 🙄", url="https://github.com/AnonymousR1025/FallenMusic"
+                        "Creator", url="https://t.me/akhil_si"
                     )
                 ]
             ]
