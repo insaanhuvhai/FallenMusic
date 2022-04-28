@@ -43,7 +43,7 @@ def isArgInt(message: Message) -> bool:
 async def quotly_func(client, message: Message):
     await message.delete()
     if not message.reply_to_message:
-        return await message.reply_text("ʀᴇᴩʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ sᴏ ᴛʜᴀᴛ ɪ ᴄᴀɴ ǫᴜᴏᴛᴇ ɪᴛ ! 😉")
+        return await message.reply_text("Reply To A Message So I can Quote It...")
     if not message.reply_to_message.text:
         return await message.reply_text(
             "Can't Found Text in That Message..."
