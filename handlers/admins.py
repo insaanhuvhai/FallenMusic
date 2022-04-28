@@ -28,7 +28,7 @@ async def pause(_, message: Message):
 async def resume(_, message: Message):
     await message.delete()
     await callsmusic.pytgcalls.resume_stream(message.chat.id)
-    await message.reply_text("Track Resumed by {} ".format( message.from_user.mention ), )
+    await message.reply_text("Song Resumed by {} ".format( message.from_user.mention ), )
 
 
 @Client.on_message(command(["end", " stop"]) & other_filters)
