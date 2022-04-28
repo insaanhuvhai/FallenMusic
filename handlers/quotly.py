@@ -46,9 +46,9 @@ async def quotly_func(client, message: Message):
         return await message.reply_text("ʀᴇᴩʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ sᴏ ᴛʜᴀᴛ ɪ ᴄᴀɴ ǫᴜᴏᴛᴇ ɪᴛ ! 😉")
     if not message.reply_to_message.text:
         return await message.reply_text(
-            "ᴅɪᴅɴ'ᴛ ғᴏᴜɴᴅ ᴀɴʏ ᴛᴇxᴛ ɪɴ ᴛʜᴀᴛ ᴍᴇssᴀɢᴇ ! 🥺"
+            "Can't Found Text in That Message..."
         )
-    m = await message.reply_text("`ᴄʀᴇᴀᴛɪɴɢ ᴀ ǫᴜᴏᴛᴇ...`")
+    m = await message.reply_text("`Okay ! Making a Quote....`")
     if len(message.command) < 2:
         messages = [message.reply_to_message]
 
@@ -56,7 +56,7 @@ async def quotly_func(client, message: Message):
         arg = isArgInt(message)
         if arg[0]:
             if arg[1] < 2 or arg[1] > 10:
-                return await m.edit("ɴᴜᴍʙᴇʀ ᴍᴜsᴛ ʙᴇ ʙᴇᴛᴡᴇᴇɴ 2-10.")
+                return await m.edit("Number must be between 2-10.")
             count = arg[1]
             messages = await client.get_messages(
                 message.chat.id,
@@ -82,7 +82,7 @@ async def quotly_func(client, message: Message):
             messages = [reply_message]
     else:
         await m.edit(
-            "ɪɴᴄᴏʀʀᴇᴄᴛ ɴᴜᴍʙᴇʀ !"
+            "Incorrect Number !"
         )
         return
     try:
@@ -96,9 +96,9 @@ async def quotly_func(client, message: Message):
         sticker.close()
     except Exception as e:
         await m.edit(
-            "sᴏᴍᴇᴛʜɪɴɢ ᴡʀᴏɴɢ ʜᴀᴩᴩᴇɴᴇᴅ ᴡʜɪʟᴇ ǫᴜᴏᴛɪɴɢ ᴍᴇssᴀɢᴇs,"
-            + " ᴛʜɪs ᴇʀʀᴏʀ ᴜsᴜᴀʟʟʏ ʜᴀᴩᴩᴇɴs ᴡʜᴇɴ ᴛʜᴇʀᴇ's"
-            + " ᴍᴇssᴀɢᴇ ᴄᴏɴᴛᴀɪɴɪɴɢ sᴏᴍᴇᴛʜɪɴɢ ᴏᴛʜᴇʀ ᴛʜᴀɴ ᴛᴇxᴛ."
+            "Something Went Wrong Happened While Quoting Message,"
+            + " this error usually happens when there is"
+            + " Message containing something other that text."
         )
         e = format_exc()
         print(e)
