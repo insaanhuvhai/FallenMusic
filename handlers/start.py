@@ -27,7 +27,7 @@ to Telegram users.
             [
                 [
                     InlineKeyboardButton(
-                        "➕ ADD AKIRA TO YOUR GROUP", url=f"https://t.me/Akira_MusicBot?startgroup=true"
+                        "➕ Add Akira To Your Group ➕", url=f"https://t.me/Akira_MusicBot?startgroup=true"
                        ),
                   ],[
                     InlineKeyboardButton(
